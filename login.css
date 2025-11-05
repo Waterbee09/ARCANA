@@ -1,0 +1,152 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quantico', sans-serif;
+}
+
+/* ✅ วิดีโอพื้นหลังเต็มหน้าจอ */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* ส่งไปอยู่หลังเนื้อหา */
+  filter: brightness(0.5); /* ทำให้จางลงเล็กน้อย */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* กล่องหลัก */
+.container {
+  display: flex;
+  width: 900px;  
+  max-width: 95%; 
+  background: rgba(46, 9, 58, 0.381);   /* โปร่งใสเล็กน้อย */
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(1px); /* เบลอพื้นหลังเล็กน้อย */
+}
+
+/* ส่วนขวา */
+.right-section {
+  flex: 1;
+  padding: 40px;
+}
+
+.right-section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: rgba(233, 109, 52, 0.912);
+  text-align: center;
+}
+
+.input-box {
+  margin-bottom: 16px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.textbox {
+  color: rgba(233, 109, 52, 0.95);  /* สีฟอนต์ในช่องกรอก */
+  
+}
+
+/* เมื่อคลิกที่ช่องกรอก (focus) */
+.textbox:focus {
+  border-color: rgba(233, 109, 52, 1);
+  box-shadow: 0 0 8px rgba(233, 109, 52, 0.7);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* เปลี่ยนสี placeholder ให้เข้ากับธีม */
+.textbox::placeholder {
+  color: rgba(233, 109, 52, 0.6);
+}
+
+
+.input-box input:focus {
+  border-color: rgba(233, 109, 52, 0.912);
+  box-shadow: 0 0 0 2px rgba(233, 109, 52, 0.912);
+}
+
+.remember {
+  margin: 12px 0 20px;
+  font-size: 14px;
+  color: rgba(233, 109, 52, 0.912);
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(233, 109, 52, 0.912);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: rgba(233, 109, 52, 0.912);
+}
+
+.create {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create a {
+  text-decoration: none;
+  color: rgba(233, 109, 52, 0.912);
+  font-weight: 500;
+}
+
+.create a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ สำหรับมือถือ */
+@media (max-width: 768px) {
+
+
+  .right-section {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .btn:hover {
+    background: rgb(255, 255, 255);
+    color: rgb(54, 29, 64);
+  }
+
+  /* ✅ วิดีโอพื้นหลัง */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* วางไว้หลัง container */
+  filter: brightness(0.5);
+  background-color: rgb(255, 254, 254); /* ป้องกันวิดีโอโปร่งแล้วเห็นขาว */
+}
+}

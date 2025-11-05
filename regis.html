@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCANA</title>
+    <link rel="stylesheet" href="regis.css">
+    <script src="regis.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    
+
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="regiscard.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <main class="card" role="main">
+    <h1>New member</h1>
+
+    <form id="regForm" novalidate>
+        <div class="grid">
+            <div class="full">
+                <label for="firstname">Name</label>
+                <input id="firstname" name="firstname" type="text" placeholder="Name" required>
+                <div class="error" id="err-firstname" aria-live="polite"></div>
+            </div>
+
+            <div class="full">
+                <label for="birthday">Date of birth</label>
+                <input id="birthday" name="birthday" type="date" required>
+                <div class="error" id="err-birthday" aria-live="polite"></div>
+            </div>
+
+            <div class="full">
+                <label for="password">Password</label>
+                <div class="pw-row">
+                    <input id="password" name="password" type="password" placeholder="Password" minlength="8" required>
+                    <button type="button" class="toggle-btn" id="togglePw" aria-pressed="false">Show</button>
+                </div>
+                <div class="small">At least 8 characters</div>
+                <div class="error" id="err-password" aria-live="polite"></div>
+            </div>
+
+            <div class="full">
+                <label for="confirm">Confirm Password</label>
+                <input id="confirm" name="confirm" type="password" placeholder="Confirm Password" required>
+                <div class="error" id="err-confirm" aria-live="polite"></div>
+            </div>
+
+            <div class="actions">
+                <div class="muted">
+                    Already have an account? <a href="login.html" class="link">Sign in</a>
+                </div>
+                <button id="submitBtn" type="submit">REGISTER</button>
+            </div>
+        </div>
+    </form>
+</main>
+
+
+<script src="regis.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

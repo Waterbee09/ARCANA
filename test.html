@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCANA Swap</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Quantico', sans-serif; }
+
+body {
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#121212;
+}
+
+.container {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* ทั้งสองฟอร์มซ้อนกัน */
+.form {
+    position: absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    padding:40px 20px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+/* สีพื้นหลัง */
+#login { background:#1e1e1e; transform: translateX(100%); opacity:1; }
+#regis { background:#2e2e2e; transform: translateX(100%); opacity:0; pointer-events:none; }
+
+.container.show-regis #login {
+    transform: translateX(-100%);
+    opacity:0;
+    pointer-events:none;
+}
+
+.container.show-regis #regis {
+    transform: translateX(0);
+    opacity:1;
+    pointer-events:auto;
+}
+
+h1 { margin-bottom:20px; color:#e96d34; text-align:center; }
+input { width:80%; padding:10px; margin-bottom:15px; border:none; border-radius:8px; }
+button { width:80%; padding:12px; border:none; border-radius:8px; background:#4f46e5; color:#fff; cursor:pointer; margin-top:10px; }
+.link { margin-top:15px; color:#e96d34; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<div class="container" id="container">
+
+    <!-- Login form -->
+    <form id="login" class="form">
+        <h1>ARCANA</h1>
+        <input type="text" placeholder="ชื่อ">
+        <input type="password" placeholder="รหัสผ่าน">
+        <button>Sign in</button>
+        <span class="link" id="toRegis">สมัครสมาชิก</span>
+    </form>
+
+    <!-- Registration form -->
+    <form id="regis" class="form">
+        <h1>สมัครสมาชิก</h1>
+        <input type="text" placeholder="ชื่อจริง / ชื่อเล่น">
+        <input type="date" placeholder="วันเกิด">
+        <input type="password" placeholder="รหัสผ่าน">
+        <input type="password" placeholder="ยืนยันรหัสผ่าน">
+        <button>ลงทะเบียน</button>
+        <span class="link" id="toLogin">กลับเข้าสู่ระบบ</span>
+    </form>
+
+</div>
+
+<script>
+const container = document.getElementById('container');
+const toRegis = document.getElementById('toRegis');
+const toLogin = document.getElementById('toLogin');
+
+toRegis.addEventListener('click', e => {
+    e.preventDefault();
+    container.classList.add('show-regis');
+});
+
+toLogin.addEventListener('click', e => {
+    e.preventDefault();
+    container.classList.remove('show-regis');
+});
+</script>
+
+</body>
+</html>

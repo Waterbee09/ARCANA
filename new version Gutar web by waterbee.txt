@@ -1,0 +1,596 @@
+new version Gutar web by waterbee
+
+**************  Home **************
+
+!!! html 
+
+<video autoplay muted loop playsinline class="bg-video">
+        <source src="home.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+
+
+    <div class="welcome-container">
+        <h1>ARCANA</h1>
+        <a href="login.html" class="welcome-text">
+        Welcome to ARCANA. Tap to unlock the answers you seek.
+        </a>
+    </div>
+
+
+    
+     <script src="gutahome.js"></script>
+
+
+!!!  CSS 
+
+/* Reset เบา ๆ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quantico', sans-serif;
+  }
+        
+  
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ให้ครอบเต็มหน้าจอ */
+    z-index: -1; /* ไปอยู่ข้างหลัง */
+    filter: brightness(0.9); /* ทำให้มืดลงเล็กน้อย จะได้เห็นข้อความชัด */
+}
+
+body {
+    height: 100vh;     
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+
+
+.welcome-container{
+    max-width: 600px; 
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-container h1{
+    font-size: 20vw;
+    line-height: 1;
+    color: rgb(255, 255, 255);
+    font-weight: Black (Heavy);
+
+      /* เพิ่มขอบข้อความ */
+    /* -webkit-text-stroke: 0.01px rgb(255, 255, 255); ขอบสีส้ม */
+  
+}
+
+
+
+.welcome-text {
+    text-decoration: none; /* ลบเส้นใต้ */
+    color: rgb(255, 255, 255);         /* สีข้อความขาว (ปรับตามชอบ) */ 
+    font-size: 1.2vw;     /* ปรับขนาดตามต้องการ */
+    cursor: pointer;       /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+    transition: 0.3s;      /* สำหรับเอฟเฟกต์ hover */
+
+     
+}
+
+.welcome-text:hover {
+    color: rgba(255, 69, 0);        /* เปลี่ยนสีเมื่อ hover */
+}
+
+/* สำหรับมือถือ / หน้าจอเล็ก */
+@media screen and (max-width: 768px) {
+
+    .welcome-container h1{
+    font-size: 22vw;
+    line-height: 1;
+    color: rgb(239, 92, 39);
+    font-weight: Black (Heavy);
+    
+    }
+
+    .welcome-text {
+        font-size: 3vw; /* ปรับให้ใหญ่ขึ้นบนมือถือ */
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .welcome-container h1{
+    font-size: 22vw;
+    line-height: 1;
+    color: rgb(239, 92, 39);
+    font-weight: Black (Heavy);
+    }
+
+    .welcome-text {
+        font-size: 3vw; /* ขนาดใหญ่ขึ้นอีกสำหรับมือถือจอเล็ก */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+************** Login **************
+
+!!!   html
+
+<body>
+
+   <!-- ✅ วิดีโอพื้นหลัง -->
+  <video autoplay muted loop id="bg-video">
+    <source src="cardwall.mp4" type="video/mp4">
+  </video>
+
+  <div class="container">
+    <div class="right-section">
+      <h2>Sign up</h2>
+      
+      <form action="main.html" method="get">
+        <div class="input-box">
+          <input class="textbox" type="text" placeholder="Your name" required>
+        </div>
+
+        <div class="input-box">
+          <input class="textbox" type="password" placeholder="Password" required>
+        </div>
+
+        <div class="remember">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember me</label>
+        </div>
+
+        <button type="submit" class="btn">Log in</button>
+      </form>
+
+      <div class="create">
+        <a href="regis.html">Apply for membership</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+
+!!!  CSS
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quantico', sans-serif;
+}
+
+/* ✅ วิดีโอพื้นหลังเต็มหน้าจอ */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* ส่งไปอยู่หลังเนื้อหา */
+  filter: brightness(0.5); /* ทำให้จางลงเล็กน้อย */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* กล่องหลัก */
+.container {
+  display: flex;
+  width: 900px;  
+  max-width: 95%; 
+  background: rgba(45, 8, 57, 0.2);   /* โปร่งใสเล็กน้อย */
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(1px); /* เบลอพื้นหลังเล็กน้อย */
+}
+
+/* ส่วนขวา */
+.right-section {
+  flex: 1;
+  padding: 40px;
+}
+
+.right-section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: rgba(233, 109, 52, 0.912);
+  text-align: center;
+}
+
+.input-box {
+  margin-bottom: 16px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.textbox {
+  color: rgba(233, 109, 52, 0.95);  /* สีฟอนต์ในช่องกรอก */
+  
+}
+
+/* เมื่อคลิกที่ช่องกรอก (focus) */
+.textbox:focus {
+  border-color: rgba(233, 109, 52, 1);
+  box-shadow: 0 0 8px rgba(233, 109, 52, 0.7);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* เปลี่ยนสี placeholder ให้เข้ากับธีม */
+.textbox::placeholder {
+  color: rgba(233, 109, 52, 0.6);
+}
+
+
+.input-box input:focus {
+  border-color: rgba(233, 109, 52, 0.912);
+  box-shadow: 0 0 0 2px rgba(233, 109, 52, 0.912);
+}
+
+.remember {
+  margin: 12px 0 20px;
+  font-size: 14px;
+  color: rgba(233, 109, 52, 0.912);
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(233, 109, 52, 0.912);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: rgba(233, 109, 52, 0.912);
+}
+
+.create {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create a {
+  text-decoration: none;
+  color: rgba(233, 109, 52, 0.912);
+  font-weight: 500;
+}
+
+.create a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ สำหรับมือถือ */
+@media (max-width: 768px) {
+
+
+  .right-section {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .btn:hover {
+    background: rgb(255, 255, 255);
+    color: rgb(54, 29, 64);
+  }
+
+  /* ✅ วิดีโอพื้นหลัง */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* วางไว้หลัง container */
+  filter: brightness(0.5);
+  background-color: rgb(255, 254, 254); /* ป้องกันวิดีโอโปร่งแล้วเห็นขาว */
+}
+}
+
+
+
+************************** REgis ****************************************************
+
+!!!  html 
+
+
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="regiscard.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <main class="card" role="main">
+    <h1>New member</h1>
+
+    <form id="regForm" novalidate>
+        <div class="grid">
+            <div class="full">
+                <label for="firstname">Name</label>
+                <input id="firstname" name="firstname" type="text" placeholder="Name" required>
+                <div class="error" id="err-firstname" aria-live="polite"></div>
+            </div>
+
+            <div class="full">
+                <label for="birthday">Date of birth</label>
+                <input id="birthday" name="birthday" type="date" required>
+                <div class="error" id="err-birthday" aria-live="polite"></div>
+            </div>
+
+            <div class="full">
+                <label for="password">Password</label>
+                <div class="pw-row">
+                    <input id="password" name="password" type="password" placeholder="Password" minlength="8" required>
+                    <button type="button" class="toggle-btn" id="togglePw" aria-pressed="false">Show</button>
+                </div>
+                <div class="small">At least 8 characters</div>
+                <div class="error" id="err-password" aria-live="polite"></div>
+            </div>
+
+            <div class="full">
+                <label for="confirm">Confirm Password</label>
+                <input id="confirm" name="confirm" type="password" placeholder="Confirm Password" required>
+                <div class="error" id="err-confirm" aria-live="polite"></div>
+            </div>
+
+            <div class="actions">
+                <div class="muted">
+                    Already have an account? <a href="login.html" class="link">Sign in</a>
+                </div>
+                <button id="submitBtn" type="submit">REGISTER</button>
+            </div>
+        </div>
+    </form>
+</main>
+
+
+<script src="regis.js" defer></script>
+
+
+
+!!!! CSS 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quantico', sans-serif;
+  /* font-family: 'Bungee',sans-serif; */
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ให้ครอบเต็มหน้าจอ */
+    z-index: -1; /* ไปอยู่ข้างหลัง */
+    filter: brightness(0.9); /* ทำให้มืดลงเล็กน้อย จะได้เห็นข้อความชัด */
+}
+
+
+body {
+    display: flex;
+    justify-content: center; /* จัดแนวนอน */
+    align-items: center;     /* จัดแนวตั้ง */
+    height: 100vh;           /* ให้เต็มความสูงหน้าจอ */
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    margin: 0;
+}
+
+/* Card */
+.card {
+    background: rgba(45, 2, 66, 0.912);
+    /* padding: 2rem; */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: auto; /* กำหนดขนาดสูงสุด */
+    backdrop-filter: blur(10px); /* ทำให้พื้นหลังโปร่งแสงสวยขึ้น */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: rgba(233, 109, 52, 0.912);
+    font-size: 3rem;
+}
+
+/* ===== Form Grid ===== */
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* ===== Labels & Input ===== */
+label {
+    display: block; /* ทำให้ label อยู่บรรทัดเดียวกับตัวเอง */
+    /* margin-bottom: 0.5rem; */
+    font-weight: 600;
+    color: rgba(233, 109, 52, 0.912);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"] {
+    display: block; /* input อยู่บรรทัดใหม่ */
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255);
+    color: rgba(146, 24, 207, 0.912);
+    font-size: 0.8rem;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    margin-bottom: 0.5rem; /* เว้นระยะกับ error message หรือ input ถัดไป */
+}
+
+input::placeholder {
+    color: rgba(146, 24, 207, 0.912);
+}
+
+input:focus {
+    border-color: rgba(146, 24, 207, 1);
+    box-shadow: 0 0 8px rgba(146, 24, 207, 0.7);
+    background-color: rgba(255, 255, 255, 0.15);
+    
+}
+
+/* ===== Password Row ===== */
+.pw-row {
+    display: flex;
+    /* gap: 0.5rem; */
+}
+
+.pw-row input {
+    flex: 1;
+}
+
+.toggle-btn {
+    padding: 0.5rem 0.8rem;
+    background: rgba(146, 24, 207, 1);
+    border: none;
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.toggle-btn:hover {
+    background: #f7f7f7;
+    transform: translateY(-2px);
+    color: rgba(146, 24, 207);
+}
+
+.small {
+    font-size: 0.8rem;
+    color: rgba(146, 24, 207);
+    margin-top: 0.3rem;
+}
+
+/* ===== Error Messages ===== */
+.error {
+    color: rgba(233, 109, 52);
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+}
+
+/* ===== Actions ===== */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    align-items: center;
+}
+
+.actions .muted {
+    font-size: 0.9rem;
+    text-align: center;
+    color: rgba(146, 24, 207);
+}
+
+.actions .link {
+    color: rgba(233, 109, 52);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.actions .link:hover {
+    text-decoration: underline;
+}
+
+button#submitBtn {
+    width: 100%;
+    padding: 0.85rem;
+    background: rgba(233, 109, 52);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(146, 24, 207, 0.5);
+}
+
+
+
+
+
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 480px) {
+    .card {
+        padding: 1.5rem 1.8rem;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .pw-row {
+        flex-direction: column;
+    }
+
+    .toggle-btn {
+        width: 100%;
+    }
+}
+
+
+
+
+****** main ************
+
+!!!! html 
+
+
