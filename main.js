@@ -6,13 +6,13 @@ const input = document.getElementById('input');
 function showCards(cards, predictionMessage, specialCase=false) {
   const cardHTML = cards.map(file => `
     <div class="card">
-      <div class="card-face card-back">
-      <img src="cards/back.png" class="card-img" alt="card back" style="width:100%;height:100%;border-radius:2px;">
-      </div>
-      <div class="card-face card-front">
-        <img src="cards/${file}" class="card-img" alt="${file}" style="width:100%;height:100%;border-radius:2px;">
-      </div>
-    </div>
+  <div class="card-face card-back">
+    <img src="back.png" class="card-img" alt="card back" style="width:100%;height:100%;border-radius:2px;">
+  </div>
+  <div class="card-face card-front">
+    <img src="${file}" class="card-img" alt="${file}" style="width:100%;height:100%;border-radius:2px;">
+  </div>
+</div>
   `).join('');
 
   center.innerHTML = `
