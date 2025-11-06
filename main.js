@@ -42,7 +42,7 @@ function showCards(cards, predictionMessage, specialCase=false) {
           const lineEl = document.createElement('div');
           lineEl.textContent = firstLines[i];
           lineEl.style.opacity = 0;
-          lineEl.style.transition = 'opacity 0.6s ease';
+          lineEl.style.transition = 'opacity 1.5s ease';
           funnyTextEl.appendChild(lineEl);
           setTimeout(() => lineEl.style.opacity = 1, 450);
         } else {
@@ -52,10 +52,10 @@ function showCards(cards, predictionMessage, specialCase=false) {
             const lineEl = document.createElement('div');
             lineEl.textContent = finalLine;
             lineEl.style.opacity = 0;
-            lineEl.style.transition = 'opacity 0.6s ease';
+            lineEl.style.transition = 'opacity 1.5s ease';
             funnyTextEl.appendChild(lineEl);
             setTimeout(() => lineEl.style.opacity = 1, 250);
-          }, 1000);
+          }, 1500);   //แก้เวลาระยะห่างจากข้อความที่ 1 กับชุดข้อความที่ 2
         }
       }, i * 600);
     });
@@ -70,19 +70,41 @@ function showCards(cards, predictionMessage, specialCase=false) {
           const lineEl = document.createElement('div');
           lineEl.textContent = lines[i];
           lineEl.style.opacity = 0;
-          lineEl.style.transition = 'opacity 0.6s ease';
+          lineEl.style.transition = 'opacity 1.5s ease';
           funnyTextEl.appendChild(lineEl);
           setTimeout(() => lineEl.style.opacity = 1, 350);
         }
-      }, i * 600);
+      }, i * 800);
     });
   }
 }
 
 // ปุ่มสุ่มไพ่เป็น 🔮
-function showDrawButton(cards, predictionMessage, specialCase=false) {
+function showDrawButton(cards, predictionMessage, specialCase = false) {
   center.innerHTML = `
-    <div class="draw-orb" style="font-size:80px; cursor:pointer;">🔮</div>
+    <div class="draw-orb" style="font-size:80px; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+      🔮
+      <span style="
+        font-size:20px;
+        font-weight:bold;
+        margin-top:8px;
+        position:relative;
+        background: linear-gradient(90deg, orange, violet);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      ">
+        Tab
+        <span style="
+          content:'';
+          display:block;
+          height:3px;
+          width:100%;
+          background: linear-gradient(90deg, orange, violet);
+          border-radius:2px;
+          margin-top:1px;
+        "></span>
+      </span>
+    </div>
   `;
   
   const btn = center.querySelector('.draw-orb');
@@ -115,7 +137,7 @@ form.addEventListener('submit', (e) => {
     const predictionMessage = 'งานของคุณซีโร่สำเร็จแน่นอน\nแค่พุ่งไปตรง ๆ และแลกด้วยความเจ็บปวดอย่างมหันต์';
     showDrawButton(fixedCards, predictionMessage);
 
-  } else if (text.includes('งานครั้งต่อไป เป้าหมายคือเชฟ มีคำแนะนำให้จบงานได้สำเร็จไหม')) {
+  } else if (text.includes('งานครั้งต่อไป เป้าหมายคือเชฟ มีคำแนะนำให้จบงานได้สำเร็จมั้ย')) {
     const fixedCards = ['The-chariot.png', 'The-fool.png', 'Eight-of-wands.png'];
     const predictionMessage = 'คุณซีโร่… ต้องสุดโต่งไปกับมันอย่างไร้แบบแผน\nปลุกไฟให้ลุกโชน!';
     showDrawButton(fixedCards, predictionMessage);
@@ -140,3 +162,6 @@ form.addEventListener('submit', (e) => {
     center.innerHTML = `<div class="funny-text">${randomText}</div>`;
   }
 });
+
+
+
