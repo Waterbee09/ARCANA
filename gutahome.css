@@ -6,6 +6,7 @@
   font-family: 'Quantico', sans-serif;
 }
 
+/* พื้นหลังวิดีโอ */
 .bg-video {
   position: fixed;
   top: 0;
@@ -17,6 +18,7 @@
   filter: brightness(0.9);
 }
 
+/* ตัวหลักของหน้า */
 body {
   height: 100vh;     
   color: #fff;
@@ -26,6 +28,7 @@ body {
   text-align: center;
 }
 
+/* เนื้อหา Welcome */
 #welcome-container, #center {
   display: flex;
   flex-direction: column;
@@ -57,7 +60,6 @@ body {
   .welcome-container h1 { font-size: 22vw; color: rgb(239, 92, 39); }
   .welcome-text { font-size: 3vw; }
 }
-
 @media screen and (max-width: 480px) {
   .welcome-container h1 { font-size: 22vw; color: rgb(239, 92, 39); }
   .welcome-text { font-size: 3vw; }
@@ -78,11 +80,29 @@ body {
   z-index: 10;
 }
 
+/* Animation ของ Loader */
+@keyframes l20-1 {
+  0% {clip-path: polygon(50% 50%,0 0,50% 0,50% 0,50% 0,50% 0,50% 0)}
+  12.5% {clip-path: polygon(50% 50%,0 0,50% 0,100% 0,100% 0,100% 0,100% 0)}
+  25% {clip-path: polygon(50% 50%,0 0,50% 0,100% 0,100% 100%,100% 100%,100% 100%)}
+  50% {clip-path: polygon(50% 50%,0 0,50% 0,100% 0,100% 100%,50% 100%,0 100%)}
+  62.5% {clip-path: polygon(50% 50%,100% 0,100% 0,100% 0,100% 100%,50% 100%,0 100%)}
+  75% {clip-path: polygon(50% 50%,100% 100%,100% 100%,100% 100%,100% 100%,50% 100%,0 100%)}
+  100% {clip-path: polygon(50% 50%,50% 100%,50% 100%,50% 100%,50% 100%,50% 100%,0 100%)}
+}
+@keyframes l20-2 {
+  0% {transform: scaleY(1) rotate(0deg)}
+  49.99% {transform: scaleY(1) rotate(135deg)}
+  50% {transform: scaleY(-1) rotate(0deg)}
+  100% {transform: scaleY(-1) rotate(-135deg)}
+}
+
+/* Popup เตือน */
 .popup {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.4);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(4px);
@@ -96,15 +116,36 @@ body {
   text-align: center;
   animation: fadeIn 0.3s ease-out;
   box-shadow: 0 8px 25px rgba(46, 9, 58, 0.381);
-  background: linear-gradient(to bottom, rgba(233, 109, 52, 0.912)45%, #ffffff 45%);
+  background: linear-gradient(to bottom, rgba(86, 9, 103, 0.912) 45%, #ffffff 45%);
   padding-bottom: 25px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* ไอคอนเตือน */
 .warning-icon {
-  font-size: 40px;
-  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 25px;
+}
+.icon-error {
+  width: 60px;
+  height: 60px;
+}
+.icon-error .circle-bg {
+  fill: #ffffff;
+}
+.icon-error .line {
+  stroke: rgba(86, 9, 103, 0.912);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.icon-error .dot {
+  fill: rgba(86, 9, 103, 0.912);
 }
 
 /* หัวข้อ Warning */
@@ -112,8 +153,9 @@ body {
   font-size: 30px;
   font-weight: 700;
   color: rgb(46, 9, 58);
-  margin-top: 18px;
+  margin-top: 55px;
 }
+
 
 /* ข้อความอธิบาย */
 .popup-text {
@@ -124,7 +166,7 @@ body {
 
 /* ปุ่ม CLOSE */
 .btn-close {
-  background: rgba(233, 109, 52, 0.912);
+  background: rgba(86, 9, 103, 0.912);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -135,65 +177,29 @@ body {
   transition: 0.2s;
 }
 .btn-close:hover {
-  background: rgba(233, 109, 52, 0.912);
+  background: rgba(86, 9, 103, 0.912);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes l20-1{
-  0%    {clip-path: polygon(50% 50%,0 0,50% 0,50% 0,50% 0,50% 0,50% 0)}
-  12.5% {clip-path: polygon(50% 50%,0 0,50% 0,100% 0,100% 0,100% 0,100% 0)}
-  25%   {clip-path: polygon(50% 50%,0 0,50% 0,100% 0,100% 100%,100% 100%,100% 100%)}
-  50%   {clip-path: polygon(50% 50%,0 0,50% 0,100% 0,100% 100%,50% 100%,0 100%)}
-  62.5% {clip-path: polygon(50% 50%,100% 0,100% 0,100% 0,100% 100%,50% 100%,0 100%)}
-  75%   {clip-path: polygon(50% 50%,100% 100%,100% 100%,100% 100%,100% 100%,50% 100%,0 100%)}
-  100%  {clip-path: polygon(50% 50%,50% 100%,50% 100%,50% 100%,50% 100%,50% 100%,0 100%)}
-}
-@keyframes l20-2{
-  0%    {transform: scaleY(1) rotate(0deg)}
-  49.99%{transform: scaleY(1) rotate(135deg)}
-  50%   {transform: scaleY(-1) rotate(0deg)}
-  100%  {transform: scaleY(-1) rotate(-135deg)}
-}
-
-#retryBtn {
-  padding: 10px 20px;
-  background-color: #514b82;
-  color: #fff;
+/* ปุ่มจำลองเว็บล่มแบบลับ */
+.crash-trigger {
+  position: fixed;
+  top: 50%;                  /* ให้อยู่กึ่งกลางแนวตั้งของหน้าจอ */
+  right: 15px;               /* ชิดขอบขวานิดหน่อย */
+  transform: translateY(-50%); /* เลื่อนให้อยู่ตรงกลางจริง ๆ */
+  background: transparent;   /* โปร่งใส */
   border: none;
-  border-radius: 5px;
+  color: transparent;        /* ไม่มีตัวอักษร */
+  font-size: 16px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  margin-top: 20px;
-}
-#retryBtn:hover { background-color: #413770; }
-
-.warning-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px;
+  z-index: 10;
+  opacity: 0.02;             /* แทบมองไม่เห็น */
+  transition: all 0.3s ease;
 }
 
-.icon-error {
-  width: 60px;
-  height: 60px;
+.crash-trigger:hover {
+  opacity: 0.1;              /* เห็นจาง ๆ ตอน hover */
 }
 
-/* วงกลมพื้นหลังสีแดง */
-.icon-error .circle-bg {
-  fill: #ffffff;
-}
-
-/* เส้น ! สีขาว */
-.icon-error .line {
-  stroke: rgba(233, 109, 52, 0.912);
-  stroke-width: 2;
-  stroke-linecap: round;
-}
-
-/* จุดด้านล่างของ ! */
-.icon-error .dot {
-  fill: rgba(233, 109, 52, 0.912);
-}
