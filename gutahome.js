@@ -2,6 +2,7 @@ const loader = document.getElementById('loader');
 const center = document.getElementById('center');
 const errorPopup = document.getElementById('errorPopup');
 const closeBtn = document.getElementById('closeBtn');
+const crashTrigger = document.getElementById('crashTrigger');
 
 function startLoading() {
   loader.style.display = 'block';
@@ -9,35 +10,23 @@ function startLoading() {
   errorPopup.style.display = 'none';
 }
 
-function finishLoading() {
-  loader.style.display = 'none';
-  center.style.display = 'flex';
-}
-
 function showErrorPopup() {
   loader.style.display = 'none';
-  center.style.display = 'none';  // ✅ ปิด content เพื่อให้ popup เด่น
+  center.style.display = 'none';
   errorPopup.style.display = 'flex';
 }
 
-// ปุ่ม "CLOSE"
+// ปุ่ม CLOSE
 closeBtn.addEventListener('click', () => {
-  location.reload(); // รีโหลดหน้าใหม่
+  location.reload();
 });
 
-// จำลองโหลด (หรือใช้ตรวจจริงด้วย navigator.onLine)
-function simulateLoad() {
-  const online = navigator.onLine;
+// ปุ่มจำลองเว็บล่ม
+crashTrigger.addEventListener('click', () => {
+  startLoading();
 
+  // แสดง loader 1.5 วินาที แล้วโชว์ error popup
   setTimeout(() => {
-    if (online) {
-      finishLoading();
-    } else {
-      showErrorPopup();
-    }
+    showErrorPopup();
   }, 1500);
-}
-
-// เริ่มโหลดตอนเปิดหน้า
-startLoading();
-simulateLoad();
+});
