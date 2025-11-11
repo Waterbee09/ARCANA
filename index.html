@@ -20,24 +20,26 @@
 </div>
 
 <div id="loader" class="loader" style="display:none;"></div>
+
 <div id="errorPopup" class="popup" style="display:none;">
   <div class="popup-content">
     <div class="warning-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-error">
-              <circle class="circle-bg" cx="12" cy="12" r="10"/>
-              <path class="line" d="M12 7v6" />
-              <circle class="dot" cx="12" cy="16.5" r="1.2" />
-            </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-error">
+        <circle class="circle-bg" cx="12" cy="12" r="10"/>
+        <path class="line" d="M12 7v6" />
+        <circle class="dot" cx="12" cy="16.5" r="1.2" />
+      </svg>
     </div>
 
     <h2 class="popup-title">Warning!</h2>
-    <p class="popup-text">No Internet connection. Please check your network and try again.</p>
+    <p class="popup-text">Server is not responding. Please try again later.</p>
 
     <button class="btn-close" id="closeBtn">CLOSE</button>
   </div>
 </div>
 
-<div id="center"></div>
+<!-- ปุ่มเรียกโหลดจำลองเว็บล่ม -->
+<button id="crashTrigger" class="crash-trigger">⚠</button>
 
 <video autoplay muted loop playsinline class="bg-video">
   <source src="home.mp4" type="video/mp4">
@@ -48,4 +50,5 @@
 
 
 </body>
+
 </html>
