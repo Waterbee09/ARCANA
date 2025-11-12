@@ -137,7 +137,7 @@ form.addEventListener('submit', (e) => {
     const predictionMessage = 'งานของคุณซีโร่สำเร็จแน่นอน\nแค่พุ่งไปตรง ๆ และแลกด้วยความเจ็บปวดอย่างมหันต์';
     showDrawButton(fixedCards, predictionMessage);
 
-  } else if (text.includes('งานครั้งต่อไป เป้าหมายคือเชฟ มีคำแนะนำให้จบงานได้สำเร็จมั้ย')) {
+  } else if (text.includes('งานครั้งต่อไป เป้าหมายเป็นเชฟ มีคำแนะนำให้จบงานได้สำเร็จมั้ย')) {
     const fixedCards = ['The-chariot.png', 'The-fool.png', 'Eight-of-wands.png'];
     const predictionMessage = 'คุณซีโร่… ต้องสุดโต่งไปกับมันอย่างไร้แบบแผน\nปลุกไฟให้ลุกโชน!';
     showDrawButton(fixedCards, predictionMessage);
@@ -162,6 +162,7 @@ form.addEventListener('submit', (e) => {
     center.innerHTML = `<div class="funny-text">${randomText}</div>`;
   }
 });
+
 
 
 
